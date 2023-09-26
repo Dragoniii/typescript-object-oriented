@@ -4,6 +4,14 @@ export class Message {
     isSent: boolean;
 }
 
-export class Messages {
+export class Messages extends Array<Message> {
+    public getValidMessages(): Message[] {
+        return this.filter((value) => value.message.trim().length > 0);
+    }
 
+    public static getValidMessages(messages: Message[]): Message[] {
+        return messages.filter((value) => value.message.trim().length > 0);
+    }
 }
+
+Messages.getValidMessages([]);

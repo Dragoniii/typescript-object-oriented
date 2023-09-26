@@ -9,25 +9,33 @@
  */
 
 export class User {
-    firstName: string;
-    lastName: string;
-    email: string;
+    public readonly id: String;
+    public firstName: string;
+    public lastName: string;
+    public email: string;
+    protected dob: Date;
 
-    get fullName(): string {
+    public get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
     }
 
-    doesEmailMatch(email: string): boolean {
+    public doesEmailMatch(email: string): boolean {
         return this.email === email;
     }
 }
 
 export class Admin extends User {
+    public readonly yearBorn: number;
 
     constructor(firstName: string, lastName: string, email: string) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.yearBorn = this.getYear();
+    }
+
+    private getYear(): number{
+        return this.dob.getFullYear();
     }
 }

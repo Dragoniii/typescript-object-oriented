@@ -1,7 +1,7 @@
 export class Animal {
-    age: number;
-    legs: number;
-    name: string;
+    protected age: number;
+    protected legs: number;
+    protected name: string;
 
     constructor(age: number, legs: number, name: string) {
         this.age = age;
@@ -16,8 +16,8 @@ export class Cat extends Animal {
     }
 }
 
-export class Dog implements Animal {
+/*export class Dog implements Animal {
     age: number;
     legs: number;
     name: string;
-}
+}*/
